@@ -99,7 +99,6 @@ def textnumber(num):
 		iterate_counter +=1
 		
 	number_out = str()
-	print(number_list)
 	
 	while len(number_list)>0:
 		x = number_list.pop()
