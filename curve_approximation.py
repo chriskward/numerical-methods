@@ -41,3 +41,26 @@ def interpolate(xarray,yarray):
 		return yarray[min_arg] + ((x-xarray[min_arg])/(xarray[max_arg]-xarray[min_arg])) * (yarray[max_arg]-yarray[min_arg])
 		
 	return funct
+
+
+
+def auc(xarray,yarray,a=None,b=None):
+
+	if a == None : a = xarray.min()
+	if b == None : b = xarray.min()
+
+	lower_cut = (xarray<=a).argmin()-1
+	upper_cut = (xarray<=b).argmin()+1
+
+	xarray = xarray[lower_cut:upper_cut]
+	yarray = yarray[lower_cut:upper_cut]
+
+	#percentage deviance from lower_cut and a - scale the first element of area
+	#likewise for upper_cut ...
+
+
+    dx = np.append( np.diff(xarray),[0] )
+    dy = np.append( np.diff(yarray),[0] )
+    area = (dx*yarray) + (dx*dy*0.5)
+    
+    return np.sum(area)
