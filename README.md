@@ -1,4 +1,4 @@
-A small collection of python functions focussing on a range of numerical optimisation problems.
+A small collection of python functions focusing on a range of numerical optimisation problems.
 Still a work in progress, more to follow.
 
 ***
